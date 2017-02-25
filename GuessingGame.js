@@ -1,35 +1,41 @@
-function generateWinningNumber(){
-    return Math.floor(100*Math.random() + 1);
-}
-
-//fisher-yates shuffle: https://bost.ocks.org/mike/shuffle/
-function shuffle(arr){
-  var m = arr.length;
-  while (m){
-        var i = Math.floor(Math.random() * m--);
-        var t = arr[m];
-        arr[m] = arr[i];
-        arr[i] = t;
-    }
-    return arr;
-}
-
-//alternate fsa solution
-// function shuffle(arr){
-//     for(var i = arr.length-1; i > 0; i--){
-//         var index = Math.floor((i+1)*Math.random());
-//         var temp = arr[i];
-//         arr[i] = arr[index];
-//         arr[index] = temp;
-//     }
-//     return arr;
-// }
-
-function Game(){
+var Game = function(){
     this.playersGuess = null;
     this.pastGuesses = [];
     this.winningNumber = generateWinningNumber();
 }
+
+function generateWinningNumber(){
+    return Math.floor(100*Math.random() + 1);
+}
+
+function newGame(){
+    return new Game();
+}
+
+//fisher-yates shuffle: https://bost.ocks.org/mike/shuffle/
+// function shuffle(arr){
+//   var m = arr.length;
+//   while (m){
+//         var i = Math.floor(Math.random() * m--);
+//         var t = arr[m];
+//         arr[m] = arr[i];
+//         arr[i] = t;
+//     }
+//     return arr;
+// }
+
+//alternate fsa solution
+
+function shuffle(arr){
+    for(var i = arr.length-1; i > 0; i--){
+        var index = Math.floor((i+1)*Math.random());
+        var temp = arr[i];
+        arr[i] = arr[index];
+        arr[index] = temp;
+    }
+    return arr;
+}
+
 
 Game.prototype.difference = function(){
     return Math.abs(this.playersGuess - this.winningNumber);
@@ -41,7 +47,7 @@ Game.prototype.isLower = function(){
 
 Game.prototype.playersGuessSubmission = function(guess){
     if(typeof guess !== 'number' || guess < 1 || guess > 100){
-        throw 'That is an invalid guess.';
+        throw 'That is an invalid guess. Enter a number between 1 and 100.';
     }
     this.playersGuess = guess;
     return this.checkGuess();
@@ -80,8 +86,8 @@ Game.prototype.checkGuess = function() {
         return 'You Win!'
     }
     else {
-        if(this.pastGuesses.indexOf(this.playersGuess) &gt; -1) {
-            return 'You have already guessed that number.';
+        if(this.pastGuesses.indexOf(this.playersGuess) > -1) {
+            return 'You have already guessed that number. Try again!';
         }
         else {
             this.pastGuesses.push(this.playersGuess);
@@ -98,18 +104,16 @@ Game.prototype.checkGuess = function() {
                 } else {
                     $('#subtitle').text("Guess Lower!")
                 }
-                if(diff &lt; 10) return'You\'re burning up!';
-                else if(diff &lt; 25) return'You\'re lukewarm.';
-                else if(diff &lt; 50) return'You\'re a bit chilly.';
+                if(diff < 10) return'You\'re burning up!';
+                else if(diff < 25) return'You\'re lukewarm.';
+                else if(diff < 50) return'You\'re a bit chilly.';
                 else return'You\'re ice cold!';
             }
         }
     }
 }
 
-function newGame(){
-    return new Game();
-}
+
 
 Game.prototype.provideHint = function(){
     var hintArray = [this.winningNumber, generateWinningNumber(), generateWinningNumber()];
@@ -142,7 +146,7 @@ $(document).ready(function() {
 
     $('#hint').click(function() {
         var hints = game.provideHint();
-        $('#title').text('The winning number is '+hints[0]+', '+hints[1]+', or '+hints[2]);
+        $('#title').text('Hint: the winning number is '+hints[0]+', '+hints[1]+', or '+hints[2]);
     });
 
     $('#reset').click(function() {

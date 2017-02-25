@@ -26,13 +26,13 @@
           bottom: 0;
       }
 
-      #parent-input{
+      #input-parent{
          width: 160px;
          margin: 5% auto 50px;
          position: relative
       }
 
-      #submit-button{
+      #submit{
         margin: 16px;
         font-size: 18px;
         padding: 6px;
@@ -58,13 +58,24 @@
       }
 
 
-      #guess{
+      .guess{
         display: inline;
-        font-size: 60px;
+        font-size: 50px;
         border: 2px solid black;
         padding: 0 25px;
         border-radius: 10%;
         background-color: white;
       }
+
+
+      .shadow {
+          box-shadow: 2px 2px 2px darkgray
+      }
+
+      /*#app {
+      width: 60%;
+      margin: 50px auto;
+      background-color: rgba(256, 256, 256, 0.1)
+      }*/
 
 

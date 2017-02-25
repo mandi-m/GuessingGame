@@ -12,37 +12,38 @@
 
 
   <body>
-      <div id='app' class='center' class='container'>
+      <!--<div id='app' class='center' class='container'>-->
+      <div id='app' class='container center'>
 
-        <div id='headers' align = "center">
-            <h1><font color="white">Play the Guessing Game!</h1>
-            <h3>Guess a number between 1 and 100.</font></h3>
+        <div id='headers' align = "center"><font color = "white">
+            <h1 id='title'>Play the Guessing Game!</h1>
+            <h3 id='subtitle'>Guess a number between 1 and 100.</h3></font>
         </div>
 
         <div id='main'>
           
-          <div id='parent-input' align = "center">
+          <div id='input-parent' align = "center">
             <input id='player-input' class='center' placeholder='#' maxlength='3' autofocus='autofocus'></input>
             <!-- Player's guess input, and submit button -->
             <!--input placeholder="Enter guess here." maxlength='3' autofocus=autofocus></input> -->
-            <button id='submit-button' class='btn btn-danger'>Go!</button>
+            <button class='btn btn-danger' id='submit'>Go!</button>
           </div>
 
           <div id='guesses'>
             <!-- unordered list of guesses -->
             <ul id='guess-list'>
-              <li id='guess'>-</li> 
-              <li id='guess'>-</li>
-              <li id='guess'>-</li>
-              <li id='guess'>-</li>
-              <li id='guess'>-</li>
+              <li class='guess'>-</li> 
+              <li class='guess'>-</li>
+              <li class='guess'>-</li>
+              <li class='guess'>-</li>
+              <li class='guess'>-</li>
             </ul>
           </div>
 
           <div id="menu-btns">
             <!-- reset and hint buttons -->
-              <button id='reset' class='btn btn-primary'>Reset</button>
-              <button id='hint' class='btn btn-warning'>Hint</button>
+              <button class='btn btn-primary' id='reset'>Reset</button>
+              <button class='btn btn-warning' id='hint' >Hint</button>
           </div>
         </div>
       </div>
@@ -68,9 +69,10 @@
 
 <!--<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>-->
 
-<script src="https://code.jquery.com/jquery-3.1.0.min.js"</script>
+<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
 
-    <script src="GuessingGame.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>-->
+<script src="GuessingGame.js"></script>
 
   </body>
 </html>
