@@ -14,7 +14,7 @@
 
       body{
             background-image: url("background-image-2.jpg");
-            background-size: 100% 140%;
+            /*background-size: 100% 100%;*/
       }
 
 
@@ -68,9 +68,9 @@
       }
 
 
-      .shadow {
+      /*.shadow {
           box-shadow: 2px 2px 2px darkgray
-      }
+      }*/
 
       /*#app {
       width: 80%;
