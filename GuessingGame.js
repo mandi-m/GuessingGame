@@ -13,25 +13,13 @@ function newGame(){
 }
 
 //fisher-yates shuffle: https://bost.ocks.org/mike/shuffle/
-// function shuffle(arr){
-//   var m = arr.length;
-//   while (m){
-//         var i = Math.floor(Math.random() * m--);
-//         var t = arr[m];
-//         arr[m] = arr[i];
-//         arr[i] = t;
-//     }
-//     return arr;
-// }
-
-//alternate fsa solution
-
 function shuffle(arr){
-    for(var i = arr.length-1; i > 0; i--){
-        var index = Math.floor((i+1)*Math.random());
-        var temp = arr[i];
-        arr[i] = arr[index];
-        arr[index] = temp;
+  var m = arr.length;
+  while (m){
+        var i = Math.floor(Math.random() * m--);
+        var t = arr[m];
+        arr[m] = arr[i];
+        arr[i] = t;
     }
     return arr;
 }
@@ -52,31 +40,6 @@ Game.prototype.playersGuessSubmission = function(guess){
     this.playersGuess = guess;
     return this.checkGuess();
 }
-
-//my solution, need to modify with jquery
-// Game.prototype.checkGuess = function(){
-//     if(this.playersGuess === this.winningNumber){
-//         return 'You Win!';
-//     }
-//     else{
-//         if(this.pastGuesses.indexOf(this.playersGuess) > -1){
-//             return 'You have already guessed that number.'
-//         }
-//         else{
-//             this.pastGuesses.push(this.playersGuess);
-//             if(this.pastGuesses.length === 5){
-//                 return "You Lose.";
-//             }
-//             else {
-//                 var diff = this.difference();
-//                 if(diff < 10) return "You're burning up!";
-//                 else if(diff < 25) return "You're lukewarm."
-//                 else if(diff < 50) return "You're a bit chilly.";
-//                 else return "You're ice cold!";
-//             }
-//         }
-//     }
-// }
 
 
 Game.prototype.checkGuess = function() {
@@ -114,16 +77,12 @@ Game.prototype.checkGuess = function() {
 }
 
 
-
 Game.prototype.provideHint = function(){
     var hintArray = [this.winningNumber, generateWinningNumber(), generateWinningNumber()];
     return shuffle(hintArray);
 }
 
 
-
-
-//added jquery
 function makeAGuess(game) {
     var guess = $('#player-input').val();
     $('#player-input').val("");
@@ -146,7 +105,7 @@ $(document).ready(function() {
 
     $('#hint').click(function() {
         var hints = game.provideHint();
-        $('#title').text('Hint: the winning number is '+hints[0]+', '+hints[1]+', or '+hints[2]);
+        $('#title').text('Hint: the winning number is '+hints[0]+', '+hints[1]+', or '+hints[2] + '.');
     });
 
     $('#reset').click(function() {
