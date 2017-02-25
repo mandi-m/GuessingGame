@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Guessing Game by Mandi</title>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+
+
+
+
+  <body>
+      <div id='app' class='center' class='container'>
+
+        <div id='headers' align = "center">
+            <h1><font color="white">Play the Guessing Game!</h1>
+            <h3>Guess a number between 1 and 100.</font></h3>
+        </div>
+
+        <div id='main'>
+          
+          <div id='parent-input' align = "center">
+            <input id='player-input' class='center' placeholder='#' maxlength='3' autofocus='autofocus'></input>
+            <!-- Player's guess input, and submit button -->
+            <!--input placeholder="Enter guess here." maxlength='3' autofocus=autofocus></input> -->
+            <button id='submit-button' class='btn btn-danger'>Go!</button>
+          </div>
+
+          <div id='guesses'>
+            <!-- unordered list of guesses -->
+            <ul id='guess-list'>
+              <li id='guess'>-</li> 
+              <li id='guess'>-</li>
+              <li id='guess'>-</li>
+              <li id='guess'>-</li>
+              <li id='guess'>-</li>
+            </ul>
+          </div>
+
+          <div id="menu-btns">
+            <!-- reset and hint buttons -->
+              <button id='reset' class='btn btn-primary'>Reset</button>
+              <button id='hint' class='btn btn-warning'>Hint</button>
+          </div>
+        </div>
+      </div>
+
+
+
+    <div id='footer' class='center'>
+          <div class='row'>
+            <div class='col-sm-4'>
+                <a href="https://www.fullstackacademy.com/" target="_blank"><img src='fa-logo@2x.png'></img></a>
+            </div>
+
+            <div class='col-sm-4'>
+                <h4>Project by Mandi Meidlinger</h4>
+            </div>
+
+            <div class='col-sm-4'>
+               <a href="https://www.gracehopper.com/" target="_blank"><img src='grace_hopper_academy.png'></img></a>
+            </div>
+
+         </div>
+    </div>
+
+<!--<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>-->
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"</script>
+
+    <script src="GuessingGame.js"></script>
+
+  </body>
+</html>
+
+
